@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbi73m53d2bjc"]
+
+[ext_resource type="Texture2D" uid="uid://d0hg6egjwc370" path="res://assets/circulo.png" id="1_g31k5"]
+[ext_resource type="Script" path="res://game_objects/player/player.gd" id="1_re16d"]
+[ext_resource type="Texture2D" uid="uid://bk0d47ashbt2f" path="res://icon.svg" id="2_kcnwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y33be"]
+radius = 528.0
+
+[node name="Player" type="StaticBody2D"]
+script = ExtResource("1_re16d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-12, -18)
+texture = ExtResource("1_g31k5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y33be")
+debug_color = Color(0.972549, 0.0509804, 0.411765, 0.419608)
+
+[node name="Direction" type="Sprite2D" parent="."]
+position = Vector2(-538, 8)
+texture = ExtResource("2_kcnwf")
