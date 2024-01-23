@@ -8,7 +8,6 @@
 radius = 528.0
 
 [node name="Player" type="Area2D"]
-scale = Vector2(0.2, 0.2)
 script = ExtResource("1_re16d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,7 +19,20 @@ shape = SubResource("CircleShape2D_y33be")
 debug_color = Color(0.972549, 0.0509804, 0.411765, 0.419608)
 
 [node name="Direction" type="Sprite2D" parent="."]
-position = Vector2(-538, 8)
+position = Vector2(523, 0)
 texture = ExtResource("2_kcnwf")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Direction4" type="Sprite2D" parent="."]
+position = Vector2(-523, 0)
+texture = ExtResource("2_kcnwf")
+
+[node name="Direction2" type="Sprite2D" parent="."]
+position = Vector2(0, -523)
+texture = ExtResource("2_kcnwf")
+
+[node name="Direction3" type="Sprite2D" parent="."]
+position = Vector2(0, 523)
+texture = ExtResource("2_kcnwf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
