@@ -11,7 +11,7 @@
 script = ExtResource("1_ng2rl")
 
 [node name="Player" parent="." instance=ExtResource("2_p7bxy")]
-position = Vector2(1314, 616)
+position = Vector2(540, 1344)
 body_player_scenes = Array[PackedScene]([ExtResource("3_3cof3"), ExtResource("4_r06tr"), ExtResource("5_qe56s"), ExtResource("6_jx73a")])
 rotation_speed = 40.0
 bottom_percentage_position = 30

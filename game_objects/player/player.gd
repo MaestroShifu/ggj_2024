@@ -23,16 +23,21 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	calculate_position()
 	
-	var body := get_node(BODY_NODE_NAME) as Body
+	var body := get_node_or_null(BODY_NODE_NAME) as Body
 	if body:
 		var vel_degrees_rotation := rotation_speed * delta
 		body.rotate(deg_to_rad(vel_degrees_rotation))
 
 func calculate_position() -> void:
-	var visible_rect := get_viewport().get_visible_rect().size
+	var visible_rect := Vector2.ZERO
+	if Engine.is_editor_hint():
+		visible_rect =  Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"), ProjectSettings.get_setting("display/window/size/viewport_height"))
+	else:
+		visible_rect = get_viewport().get_visible_rect().size
+
 	var x := visible_rect.x / 2
 	var y := visible_rect.y - ((bottom_percentage_position * visible_rect.y) / 100)
-	position = Vector2(x, y)
+	global_position = Vector2(x, y)
 
 func start_body() -> void:
 	var idx := randi() % body_player_scenes.size()

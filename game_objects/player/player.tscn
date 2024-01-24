@@ -3,6 +3,5 @@
 [ext_resource type="Script" path="res://game_objects/player/player.gd" id="1_re16d"]
 
 [node name="Player" type="Node2D"]
+position = Vector2(540, 1920)
 script = ExtResource("1_re16d")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
