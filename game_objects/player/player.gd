@@ -1,42 +1,57 @@
-extends Area2D
+@tool
+extends Node2D
+
+class_name Player
+
+const BODY_NODE_NAME = "Body"
+
+## Possible body for players
+@export var body_player_scenes: Array[PackedScene]
 
 ## Speed of rotation in px/sg
 @export var rotation_speed: float
 
-var is_valid_merge: bool = false
+## Position percentage from bottom
+@export_range(0, 100) var bottom_percentage_position: int
+
+func _ready() -> void:
+	if len(body_player_scenes) <= 0:
+		printerr("You need load body players valid")
+		return
+	start_body()
 
 func _process(delta: float) -> void:
-	var vel_degrees_rotation := rotation_speed * delta
-	rotate(deg_to_rad(vel_degrees_rotation))
+	calculate_position()
+	
+	var body := get_node(BODY_NODE_NAME) as Body
+	if body:
+		var vel_degrees_rotation := rotation_speed * delta
+		body.rotate(deg_to_rad(vel_degrees_rotation))
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("tap_action") and is_valid_merge:
-		var body_part_node = get_tree().get_first_node_in_group("body_parts") as BodyPart
-		body_part_node.stop_fall = true
+func calculate_position() -> void:
+	var visible_rect := get_viewport().get_visible_rect().size
+	var x := visible_rect.x / 2
+	var y := visible_rect.y - ((bottom_percentage_position * visible_rect.y) / 100)
+	position = Vector2(x, y)
 
-		var duplicate = body_part_node.duplicate() as BodyPart
-		duplicate.stop_fall = true
+func start_body() -> void:
+	var idx := randi() % body_player_scenes.size()
+	var body_player := body_player_scenes[idx]
+	var scene := body_player.instantiate() as Body
 
-		# Get node local position
-		var new_pos = duplicate.global_position - global_position
-		var new_rot = body_part_node.global_rotation - global_rotation
-		
-		# Rotating shapes about the origin
-		var x = new_pos.x * cos(new_rot) - new_pos.y * sin(new_rot)
-		var y = new_pos.x * sin(new_rot) + new_pos.y * cos(new_rot)
-		
-		duplicate.position = Vector2(x, y)
-		duplicate.rotation = new_rot
+	scene.name = BODY_NODE_NAME
+	scene.body_entered.connect(_on_body_entered)
+	scene.body_exited.connect(_on_body_exited)
 
-		add_child(duplicate)
+	add_child(scene)
 
-		body_part_node.queue_free()
-		is_valid_merge = !is_valid_merge
+func restart_body() -> void:
+	var body := get_node(BODY_NODE_NAME) as Body
+	body.queue_free()
+	start_body()
 
-func _on_area_entered(area: Area2D) -> void:
-	if area is BodyPart:
-		is_valid_merge = !is_valid_merge
+func _on_body_entered(body: Node2D) -> void:
+	pass
 
-func _on_area_exited(area: Area2D) -> void:
-	if area is BodyPart:
-		is_valid_merge = !is_valid_merge
+func _on_body_exited(body: Node2D) -> void:
+	pass

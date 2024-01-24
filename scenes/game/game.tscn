@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://c5kpx2jcr2t10"]
+[gd_scene load_steps=7 format=3 uid="uid://c5kpx2jcr2t10"]
+
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ng2rl"]
+[ext_resource type="PackedScene" uid="uid://dh0py0u0x5ats" path="res://game_objects/player/player.tscn" id="2_p7bxy"]
+[ext_resource type="PackedScene" uid="uid://brjdokjlhe4ab" path="res://game_objects/body_parts/bodies/body_1.tscn" id="3_3cof3"]
+[ext_resource type="PackedScene" uid="uid://bdpytuxnvytjt" path="res://game_objects/body_parts/bodies/body_2.tscn" id="4_r06tr"]
+[ext_resource type="PackedScene" uid="uid://btsp03s2ivbp3" path="res://game_objects/body_parts/bodies/body_3.tscn" id="5_qe56s"]
+[ext_resource type="PackedScene" uid="uid://14bhdre3p34v" path="res://game_objects/body_parts/bodies/body_4.tscn" id="6_jx73a"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ng2rl")
+
+[node name="Player" parent="." instance=ExtResource("2_p7bxy")]
+position = Vector2(1314, 616)
+body_player_scenes = Array[PackedScene]([ExtResource("3_3cof3"), ExtResource("4_r06tr"), ExtResource("5_qe56s"), ExtResource("6_jx73a")])
+rotation_speed = 40.0
+bottom_percentage_position = 30

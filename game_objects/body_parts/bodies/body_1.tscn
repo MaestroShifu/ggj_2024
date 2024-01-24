@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://brjdokjlhe4ab"]
+
+[ext_resource type="Script" path="res://game_objects/body_parts/bodies/body.gd" id="1_mi7uh"]
+[ext_resource type="Texture2D" uid="uid://ioyhm11h8yy0" path="res://assets/body/Body_1.png" id="1_sweww"]
+
+[node name="Body_1" type="Area2D"]
+script = ExtResource("1_mi7uh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-202, 195, -189, 202, -173, 210, -156, 214, -85, 228, 17, 234, 87, 238, 142, 238, 170, 255, 172, 256, 176, 256, 180, 254, 187, 244, 195, 224, 207, 173, 210, 136, 210, 113, 210, 96, 210, 16, 209, 13, 209, -49, 208, -53, 208, -68, 207, -71, 207, -80, 207, -82, 207, -89, 206, -100, 204, -118, 202, -131, 198, -151, 194, -166, 189, -179, 185, -187, 212, -188, 213, -190, 196, -207, 170, -230, 153, -238, 124, -238, 51, -237, 3, -235, -32, -228, -140, -204, -176, -189, -209, -174, -233, -160, -242, -154, -244, -150, -244, -145, -240, -143, -231, -143, -221, -130, -222, -114, -216, -42, -206, 54, -190, 141, -189, 164, -193, 169, -189, 180, -181, 189, -198, 185)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("1_sweww")

@@ -1,14 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://des3jxi6kvcgf"]
+[gd_scene load_steps=2 format=3 uid="uid://des3jxi6kvcgf"]
 
-[ext_resource type="PackedScene" uid="uid://dbi73m53d2bjc" path="res://game_objects/player/player.tscn" id="1_yk5ii"]
-[ext_resource type="PackedScene" uid="uid://do6fy0k5l76wo" path="res://game_objects/body_parts/square/square.tscn" id="2_6ph6e"]
+[ext_resource type="PackedScene" uid="uid://c5kpx2jcr2t10" path="res://scenes/game/game.tscn" id="1_8bbgj"]
 
 [node name="Main" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("1_yk5ii")]
-position = Vector2(529, 606)
-rotation_speed = 30.0
-
-[node name="Square" parent="." instance=ExtResource("2_6ph6e")]
-position = Vector2(520, 51)
-fall_speed = 980.0
+[node name="Game" parent="." instance=ExtResource("1_8bbgj")]

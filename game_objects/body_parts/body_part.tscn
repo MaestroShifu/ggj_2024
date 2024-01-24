@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtvpoijhyxhw0"]
-
-[ext_resource type="Script" path="res://game_objects/body_parts/body_part.gd" id="1_4adya"]
-
-[node name="BodyPart" type="Area2D" groups=["body_parts"]]
-script = ExtResource("1_4adya")
