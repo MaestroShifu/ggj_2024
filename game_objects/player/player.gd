@@ -16,7 +16,7 @@ const BODY_NODE_NAME = "Body"
 
 func _ready() -> void:
 	if len(body_player_scenes) <= 0:
-		printerr("You need load body players valid")
+		push_error("You need load body players valid")
 		return
 	start_body()
 
@@ -29,15 +29,10 @@ func _process(delta: float) -> void:
 		body.rotate(deg_to_rad(vel_degrees_rotation))
 
 func calculate_position() -> void:
-	var visible_rect := Vector2.ZERO
-	if Engine.is_editor_hint():
-		visible_rect =  Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"), ProjectSettings.get_setting("display/window/size/viewport_height"))
-	else:
-		visible_rect = get_viewport().get_visible_rect().size
-
+	var visible_rect := Utils.get_visible_rect()
 	var x := visible_rect.x / 2
 	var y := visible_rect.y - ((bottom_percentage_position * visible_rect.y) / 100)
-	global_position = Vector2(x, y)
+	position = Vector2(x, y)
 
 func start_body() -> void:
 	var idx := randi() % body_player_scenes.size()

@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh0py0u0x5ats"]
+[gd_scene load_steps=6 format=3 uid="uid://dh0py0u0x5ats"]
 
 [ext_resource type="Script" path="res://game_objects/player/player.gd" id="1_re16d"]
+[ext_resource type="PackedScene" uid="uid://brjdokjlhe4ab" path="res://game_objects/body_parts/bodies/body_1.tscn" id="2_gk07a"]
+[ext_resource type="PackedScene" uid="uid://bdpytuxnvytjt" path="res://game_objects/body_parts/bodies/body_2.tscn" id="3_svvns"]
+[ext_resource type="PackedScene" uid="uid://btsp03s2ivbp3" path="res://game_objects/body_parts/bodies/body_3.tscn" id="4_kuhij"]
+[ext_resource type="PackedScene" uid="uid://14bhdre3p34v" path="res://game_objects/body_parts/bodies/body_4.tscn" id="5_kyg37"]
 
 [node name="Player" type="Node2D"]
-position = Vector2(540, 1920)
+position = Vector2(540, 1344)
+scale = Vector2(1, 1.00152)
 script = ExtResource("1_re16d")
+body_player_scenes = Array[PackedScene]([ExtResource("2_gk07a"), ExtResource("3_svvns"), ExtResource("4_kuhij"), ExtResource("5_kyg37")])
+rotation_speed = 40.0
+bottom_percentage_position = 30

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5kpx2jcr2t10"]
+
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ng2rl"]
+[ext_resource type="PackedScene" uid="uid://br1yu1awnokex" path="res://game_objects/spawn_body_parts/spawn_body_parts.tscn" id="2_12s3l"]
+[ext_resource type="PackedScene" uid="uid://dh0py0u0x5ats" path="res://game_objects/player/player.tscn" id="2_p7bxy"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ng2rl")
+
+[node name="SpawnBodyParts" parent="." instance=ExtResource("2_12s3l")]
+
+[node name="Player" parent="." instance=ExtResource("2_p7bxy")]
+position = Vector2(51, 1208)
+
+[node name="LeftLimit" type="StaticBody2D" parent="."]
