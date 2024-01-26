@@ -20,6 +20,7 @@ offset_bottom = 40.0
 texture = ExtResource("2_3pv4g")
 
 [node name="Player" parent="." instance=ExtResource("2_nqydx")]
+position = Vector2(540, 1536)
 bottom_percentage_position = 20
 
 [node name="SpawnBodyParts" parent="." instance=ExtResource("3_lsvgi")]

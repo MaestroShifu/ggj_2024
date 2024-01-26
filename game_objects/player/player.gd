@@ -67,7 +67,11 @@ func copy_merge_body_part(body_part: BodyParts) -> void:
 	body_part.queue_free()
 
 func calculate_position() -> void:
-	var visible_rect := Utils.get_visible_rect()
+	var visible_rect := Vector2.ZERO
+	if Engine.is_editor_hint():
+		visible_rect =  Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"), ProjectSettings.get_setting("display/window/size/viewport_height"))
+	else:
+		visible_rect = Utils.get_visible_rect()
 	var x := visible_rect.x / 2
 	var y := visible_rect.y - ((bottom_percentage_position * visible_rect.y) / 100)
 	position = Vector2(x, y)
