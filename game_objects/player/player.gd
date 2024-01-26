@@ -52,10 +52,6 @@ func copy_merge_body_part(body_part: BodyParts) -> void:
 
 	var new_pos = body_part.global_position - body.global_position
 	var new_rot = body_part.global_rotation - body.global_rotation
-	
-	print("body_part.global_rotation", body_part.global_rotation)
-	print("body.global_rotation", body.global_rotation)
-	print("new_rot", new_rot)
 
 	# Rotating shapes about the origin
 	var x = new_pos.x * cos(new_rot) - new_pos.y * sin(new_rot)

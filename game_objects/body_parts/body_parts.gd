@@ -10,3 +10,4 @@ func _ready() -> void:
 func paste_to_body() -> void:
 	freeze = true
 	is_valid = false
+	remove_from_group(Utils.BODY_PARTS_GROUP)
