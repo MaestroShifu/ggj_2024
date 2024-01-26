@@ -1,5 +1,7 @@
 extends Node
 
+const BODY_PARTS_GROUP = "body_parts"
+
 func get_visible_rect() -> Vector2:
 	var visible_rect := Vector2.ZERO
 	if Engine.is_editor_hint():

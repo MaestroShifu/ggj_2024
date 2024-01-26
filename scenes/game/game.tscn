@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5kpx2jcr2t10"]
+[gd_scene load_steps=7 format=3 uid="uid://c5kpx2jcr2t10"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ng2rl"]
+[ext_resource type="Texture2D" uid="uid://cnm1yrrgtg08l" path="res://assets/background/BG_gameplay.png" id="2_3pv4g"]
 [ext_resource type="PackedScene" uid="uid://dh0py0u0x5ats" path="res://game_objects/player/player.tscn" id="2_nqydx"]
 [ext_resource type="PackedScene" uid="uid://br1yu1awnokex" path="res://game_objects/spawn_body_parts/spawn_body_parts.tscn" id="3_lsvgi"]
 
@@ -13,19 +14,29 @@ size = Vector2(40, 2100)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ng2rl")
 
-[node name="Hand" parent="." instance=ExtResource("3_lsvgi")]
-position = Vector2(485, 165)
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_3pv4g")
 
 [node name="Player" parent="." instance=ExtResource("2_nqydx")]
+bottom_percentage_position = 20
+
+[node name="SpawnBodyParts" parent="." instance=ExtResource("3_lsvgi")]
+position = Vector2(245, 443)
 
 [node name="LeftLimit" type="StaticBody2D" parent="."]
 position = Vector2(-20, 960)
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLimit"]
 shape = SubResource("RectangleShape2D_vrlef")
 
 [node name="RightLimit" type="StaticBody2D" parent="."]
 position = Vector2(1100, 960)
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightLimit"]
 shape = SubResource("RectangleShape2D_ffd1q")

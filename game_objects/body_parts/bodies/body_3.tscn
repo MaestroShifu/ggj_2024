@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cv58huhxlosx8" path="res://assets/body/Body_3.png" id="2_dndkr"]
 
 [node name="Body_3" type="Area2D"]
+collision_mask = 4
 script = ExtResource("1_oo75l")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

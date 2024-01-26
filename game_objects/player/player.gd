@@ -14,6 +14,8 @@ const BODY_NODE_NAME = "Body"
 ## Position percentage from bottom
 @export_range(0, 100) var bottom_percentage_position: int
 
+var valid_node: String = ""
+
 func _ready() -> void:
 	if len(body_player_scenes) <= 0:
 		push_error("You need load body players valid")
@@ -27,6 +29,42 @@ func _process(delta: float) -> void:
 	if body:
 		var vel_degrees_rotation := rotation_speed * delta
 		body.rotate(deg_to_rad(vel_degrees_rotation))
+
+func paste() -> bool:
+	if valid_node == "":
+		return false
+	var body_part: BodyParts
+	for bp in get_tree().get_nodes_in_group(Utils.BODY_PARTS_GROUP):
+		if bp.name == valid_node:
+			body_part = bp
+			break
+	if body_part:
+		copy_merge_body_part(body_part)
+		return true
+	return false
+
+func copy_merge_body_part(body_part: BodyParts) -> void:
+	var body := get_node_or_null(BODY_NODE_NAME) as Body
+
+	var part_duplicate := body_part.duplicate() as BodyParts
+	part_duplicate.paste_to_body()
+
+	var new_pos = body_part.global_position - body.global_position
+	var new_rot = body_part.global_rotation - body.global_rotation
+	
+	print("body_part.global_rotation", body_part.global_rotation)
+	print("body.global_rotation", body.global_rotation)
+	print("new_rot", new_rot)
+
+	# Rotating shapes about the origin
+	var x = new_pos.x * cos(new_rot) - new_pos.y * sin(new_rot)
+	var y = new_pos.x * sin(new_rot) + new_pos.y * cos(new_rot)
+
+	part_duplicate.position = Vector2(x, y)
+	part_duplicate.rotation = new_rot
+
+	body.add_part(part_duplicate)
+	body_part.queue_free()
 
 func calculate_position() -> void:
 	var visible_rect := Utils.get_visible_rect()
@@ -51,7 +89,8 @@ func restart_body() -> void:
 	start_body()
 
 func _on_body_entered(body: Node2D) -> void:
-	pass
+	valid_node = body.name
 
 func _on_body_exited(body: Node2D) -> void:
-	pass
+	if body.name == valid_node:
+		valid_node = ""

@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dwms2qa2pnv6a" path="res://assets/background/gameplay_hand.png" id="3_3v7u8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd4fj"]
-size = Vector2(311, 247)
+size = Vector2(311, 252)
 
-[node name="SpawnBodyParts" type="CharacterBody2D"]
+[node name="Hand" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_b6eoy")
@@ -18,15 +18,5 @@ hand_speed = 40.0
 texture = ExtResource("3_3v7u8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(41.5, -80.5)
+position = Vector2(41.5, -78)
 shape = SubResource("RectangleShape2D_fd4fj")
-
-[node name="Joins" type="Node2D" parent="."]
-position = Vector2(78, 46)
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Joins"]
-node_a = NodePath("../..")
-node_b = NodePath("../Eyes_1")
-
-[node name="Eyes_1" parent="Joins" instance=ExtResource("2_t657n")]
-position = Vector2(7, 77)

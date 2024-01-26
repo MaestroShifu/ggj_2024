@@ -1,5 +1,5 @@
 @tool
-extends RigidBody2D
+extends BodyParts
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -9,8 +9,7 @@ extends RigidBody2D
 var timer: Timer
 
 func _ready() -> void:
-	freeze = true
-
+	super._ready()
 	timer = Timer.new()
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
