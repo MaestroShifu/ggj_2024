@@ -37,9 +37,10 @@ func paste() -> bool:
 	for bp in get_tree().get_nodes_in_group(Utils.BODY_PARTS_GROUP):
 		if bp.name == valid_node:
 			body_part = bp
-			break
+			break  
 	if body_part:
 		copy_merge_body_part(body_part)
+		valid_node = ""
 		return true
 	return false
 
@@ -92,9 +93,10 @@ func restart_body() -> void:
 	body.queue_free()
 	start_body()
 
-func _on_body_entered(body: Node2D) -> void:
-	valid_node = body.name
+func _on_body_entered(body: BodyParts) -> void:
+	if valid_node != body.name and body.is_valid: 
+		valid_node = body.name
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(body: BodyParts) -> void:
 	if body.name == valid_node:
 		valid_node = ""
