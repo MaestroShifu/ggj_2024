@@ -32,4 +32,10 @@ func _ready() -> void:
 func paste_to_body() -> void:
 	freeze = true
 	is_valid = false
+	collision_layer = 0
+	collision_mask = 0
+
+	set_collision_layer_value(1, true)
+	set_collision_mask_value(3, true)
+
 	remove_from_group(Utils.BODY_PARTS_GROUP)

@@ -46,6 +46,7 @@ size = Vector2(1200, 40)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ng2rl")
 body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_fqekj"), SubResource("Resource_h2g07"), SubResource("Resource_h0q31"), SubResource("Resource_cj35q")])
+maximum_attempts = 5
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0

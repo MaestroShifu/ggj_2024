@@ -33,8 +33,7 @@ polygon = PackedVector2Array(-85, 54, -84, 19, -82, -4, -71, -25, -56, -43, -30,
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_r5nhs")
-frame = 2
-frame_progress = 1.0
+frame_progress = 0.758978
 
 [node name="GripPoint" type="Marker2D" parent="."]
 position = Vector2(-52, -42)

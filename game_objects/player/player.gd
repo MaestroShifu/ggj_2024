@@ -24,15 +24,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	calculate_position()
-	
 	var body := get_node_or_null(BODY_NODE_NAME) as Body
 	if body:
 		var vel_degrees_rotation := rotation_speed * delta
 		body.rotate(deg_to_rad(vel_degrees_rotation))
 
 func paste() -> bool:
-	if valid_node == "":
-		return false
 	var body_part: BodyParts
 	for bp in get_tree().get_nodes_in_group(Utils.BODY_PARTS_GROUP):
 		if bp.name == valid_node:
@@ -48,10 +45,13 @@ func copy_merge_body_part(body_part: BodyParts) -> void:
 	var body := get_node_or_null(BODY_NODE_NAME) as Body
 
 	var part_duplicate := body_part.duplicate() as BodyParts
-	part_duplicate.paste_to_body()
-
 	body.add_part(part_duplicate)
+
+	part_duplicate.paste_to_body()
 	part_duplicate.global_transform = body_part.global_transform
+	
+	part_duplicate.body_entered.connect(_on_body_entered)
+	part_duplicate.body_exited.connect(_on_body_exited)
 
 	body_part.queue_free()
 
@@ -82,9 +82,9 @@ func restart_body() -> void:
 	start_body()
 
 func _on_body_entered(body: BodyParts) -> void:
-	if valid_node != body.name and body.is_valid: 
+	if valid_node != body.name and body.is_valid:
 		valid_node = body.name
 
 func _on_body_exited(body: BodyParts) -> void:
-	if body.name == valid_node:
+	if body.is_valid and len(valid_node) > 0:
 		valid_node = ""
