@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqt2b4dc6hhhc"]
+
+[ext_resource type="Texture2D" uid="uid://bb2idm6qi66yx" path="res://assets/leg/leg_2.png" id="1_28adf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_821rg"]
+radius = 96.28
+
+[sub_resource type="Animation" id="Animation_1vpwq"]
+resource_name = "leg_2_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.424115, -0.280998, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Bone2D/Bone2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.55334, 0.424115, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Bone2D/Bone2D/Bone2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.565487, -0.139626, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ullay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Bone2D/Bone2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Bone2D/Bone2D/Bone2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b213a"]
+_data = {
+"RESET": SubResource("Animation_ullay"),
+"leg_2_animation": SubResource("Animation_1vpwq")
+}
+
+[node name="Leg_2" type="RigidBody2D"]
+
+[node name="polygons" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="polygons"]
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("1_28adf")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(135.526, 115.789, 80.2632, 160.526, 55.2632, 218.421, 60.5263, 296.053, 93.4211, 372.368, 122.368, 410.526, 128.947, 435.526, 121.053, 461.842, 101.316, 530.263, 90.7895, 551.316, 85.5263, 569.737, 96.0526, 627.632, 134.211, 678.947, 294.737, 735.526, 401.316, 764.474, 423.684, 734.211, 478.947, 725, 497.368, 614.474, 409.211, 563.158, 402.632, 540.789, 403.947, 522.368, 410.526, 507.895, 440.789, 378.947, 444.737, 348.684, 431.579, 326.316, 407.895, 213.158, 356.579, 118.421, 230.263, 84.2105, 209.211, 207.895, 247.368, 381.579, 252.632, 403.947, 248.684, 431.579, 243.421, 521.053, 240.789, 547.368, 250, 573.684, 369.737, 646.053, 428.947, 675)
+uv = PackedVector2Array(135.526, 115.789, 80.2632, 160.526, 55.2632, 218.421, 60.5263, 296.053, 93.4211, 372.368, 122.368, 410.526, 128.947, 435.526, 121.053, 461.842, 101.316, 530.263, 90.7895, 551.316, 85.5263, 569.737, 96.0526, 627.632, 134.211, 678.947, 294.737, 735.526, 401.316, 764.474, 423.684, 734.211, 478.947, 725, 497.368, 614.474, 409.211, 563.158, 402.632, 540.789, 403.947, 522.368, 410.526, 507.895, 447.368, 372.368, 444.737, 348.684, 431.579, 326.316, 407.895, 213.158, 356.579, 118.421, 230.263, 84.2105, 209.211, 207.895, 247.368, 381.579, 252.632, 403.947, 248.684, 431.579, 243.421, 521.053, 240.789, 547.368, 250, 573.684, 369.737, 646.053, 428.947, 675)
+polygons = [PackedInt32Array(2, 28, 26, 27, 0, 1), PackedInt32Array(3, 28, 2), PackedInt32Array(28, 25, 26), PackedInt32Array(28, 29, 4, 3), PackedInt32Array(5, 29, 4), PackedInt32Array(6, 29, 30), PackedInt32Array(6, 5, 29), PackedInt32Array(6, 31, 30), PackedInt32Array(6, 7, 31), PackedInt32Array(31, 23, 30), PackedInt32Array(30, 23, 29), PackedInt32Array(23, 24, 29), PackedInt32Array(22, 23, 31), PackedInt32Array(24, 25, 28, 29), PackedInt32Array(22, 21, 31), PackedInt32Array(21, 32, 31), PackedInt32Array(32, 8, 31), PackedInt32Array(8, 7, 31), PackedInt32Array(8, 32, 9), PackedInt32Array(9, 33, 32), PackedInt32Array(33, 20, 32), PackedInt32Array(20, 21, 32), PackedInt32Array(20, 19, 33), PackedInt32Array(18, 34, 19), PackedInt32Array(19, 33, 34), PackedInt32Array(34, 9, 33), PackedInt32Array(34, 10, 9), PackedInt32Array(11, 34, 10), PackedInt32Array(12, 34, 11), PackedInt32Array(34, 17, 18), PackedInt32Array(34, 35, 17), PackedInt32Array(34, 12, 13, 35), PackedInt32Array(13, 14, 15, 36, 35), PackedInt32Array(15, 16, 36), PackedInt32Array(16, 17, 35, 36)]
+bones = ["Bone2D", PackedFloat32Array(1, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0), "Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 0.5, 0, 0), "Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1)]
+internal_vertex_count = 9
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(135, 111)
+rest = Transform2D(1, 0, 0, 1, 135, 111)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(33, 145)
+rest = Transform2D(1, 0, 0, 1, 33, 145)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D"]
+position = Vector2(-9, 118)
+rest = Transform2D(1, 0, 0, 1, -9, 118)
+auto_calculate_length_and_angle = false
+length = 89.73
+bone_angle = 25.946
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(134, 77)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(143, 146)
+shape = SubResource("CircleShape2D_821rg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b213a")
+}

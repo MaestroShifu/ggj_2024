@@ -1,0 +1,166 @@
+[gd_scene load_steps=6 format=3 uid="uid://vnk8r1c82v8x"]
+
+[ext_resource type="Texture2D" uid="uid://dt2e0cafuvfw4" path="res://assets/accessory/accessory_3.png" id="1_78gf3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_km7c7"]
+radius = 66.9
+
+[sub_resource type="Animation" id="Animation_ufy7a"]
+resource_name = "accessory_3_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("accessoty_bones/Bone2D:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.424115, 0.565487, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("accessoty_bones/Bone2D/Bone2D:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.282743, 0.282743, 0.462512, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("accessoty_bones/Bone2D/Bone2D/Bone2D:rotation")
+tracks/2/interp = 3
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1.1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.141372, 0.424115, 0.862193, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("accessoty_bones/Bone2D/Bone2D/Bone2D2:rotation")
+tracks/3/interp = 3
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.565487, -0.141372, 0.172788, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yo2cm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("accessoty_bones/Bone2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("accessoty_bones/Bone2D/Bone2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("accessoty_bones/Bone2D/Bone2D/Bone2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("accessoty_bones/Bone2D/Bone2D/Bone2D2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8kaw"]
+_data = {
+"RESET": SubResource("Animation_yo2cm"),
+"accessory_3_animation": SubResource("Animation_ufy7a")
+}
+
+[node name="Accessory_3" type="RigidBody2D"]
+
+[node name="polygons" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="polygons"]
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("1_78gf3")
+skeleton = NodePath("../../accessoty_bones")
+polygon = PackedVector2Array(102.97, 22.7723, 79.2079, 42.5743, 70.297, 62.3762, 47.5247, 73.2673, 50.4951, 95.0495, 78.2178, 110.891, 82.1783, 148.515, 90.099, 190.099, 57.4258, 197.03, 18.8119, 242.574, 4.9505, 307.921, 47.5247, 318.812, 98.0198, 303.96, 117.822, 266.337, 132.673, 284.158, 167.327, 319.802, 235.644, 365.347, 310.891, 377.228, 399.01, 358.416, 435.644, 314.852, 400, 253.465, 353.465, 209.901, 287.129, 185.149, 221.782, 179.208, 157.426, 180.198, 122.772, 165.347, 116.832, 138.614, 116.832, 114.851, 139.604, 121.782, 179.208, 115.842, 169.307, 91.0891, 139.604, 68.3168, 133.663, 43.5644, 97.0297, 89.1089, 96.0396, 116.832, 100, 154.455, 113.861, 186.139, 132.673, 224.752, 185.149, 264.356, 256.436, 288.119, 328.713, 300, 94.0594, 229.703, 75.2475, 252.475, 43.5644, 278.218)
+uv = PackedVector2Array(102.97, 22.7723, 79.2079, 42.5743, 70.297, 62.3762, 47.5247, 73.2673, 50.4951, 95.0495, 78.2178, 110.891, 82.1783, 148.515, 90.099, 190.099, 57.4258, 197.03, 18.8119, 242.574, 4.9505, 307.921, 47.5247, 318.812, 98.0198, 303.96, 117.822, 266.337, 132.673, 284.158, 167.327, 319.802, 235.644, 365.347, 310.891, 377.228, 399.01, 358.416, 435.644, 314.852, 400, 253.465, 353.465, 209.901, 287.129, 185.149, 221.782, 179.208, 157.426, 180.198, 122.772, 165.347, 116.832, 138.614, 116.832, 114.851, 139.604, 121.782, 179.208, 115.842, 169.307, 91.0891, 139.604, 68.3168, 133.663, 43.5644, 97.0297, 89.1089, 96.0396, 116.832, 100, 154.455, 113.861, 186.139, 132.673, 224.752, 185.149, 264.356, 256.436, 288.119, 328.713, 300, 94.0594, 229.703, 75.2475, 252.475, 43.5644, 278.218)
+polygons = [PackedInt32Array(40, 20, 19, 18), PackedInt32Array(40, 17, 18), PackedInt32Array(20, 21, 40), PackedInt32Array(40, 39, 22), PackedInt32Array(40, 21, 22), PackedInt32Array(40, 17, 16), PackedInt32Array(40, 39, 16), PackedInt32Array(39, 23, 22), PackedInt32Array(39, 16, 15), PackedInt32Array(39, 38, 23), PackedInt32Array(39, 15, 38), PackedInt32Array(15, 37, 38), PackedInt32Array(38, 23, 37), PackedInt32Array(37, 24, 23), PackedInt32Array(37, 14, 15), PackedInt32Array(14, 13, 36, 37), PackedInt32Array(13, 7, 36), PackedInt32Array(37, 36, 24), PackedInt32Array(36, 25, 24), PackedInt32Array(36, 35, 7), PackedInt32Array(36, 25, 35), PackedInt32Array(25, 26, 35), PackedInt32Array(6, 7, 35), PackedInt32Array(6, 34, 35), PackedInt32Array(35, 26, 34), PackedInt32Array(26, 34, 27), PackedInt32Array(34, 5, 6), PackedInt32Array(34, 33, 5), PackedInt32Array(27, 33, 34), PackedInt32Array(28, 29, 30, 31, 32, 0, 1), PackedInt32Array(28, 1, 33, 27), PackedInt32Array(5, 2, 1, 33), PackedInt32Array(5, 4, 3, 2), PackedInt32Array(7, 41, 13), PackedInt32Array(41, 8, 7), PackedInt32Array(41, 12, 13), PackedInt32Array(41, 42, 8), PackedInt32Array(42, 12, 41), PackedInt32Array(42, 9, 8), PackedInt32Array(42, 11, 12), PackedInt32Array(42, 43, 9), PackedInt32Array(42, 43, 11), PackedInt32Array(11, 10, 9, 43)]
+bones = ["Bone2D", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0), "Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0.5, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 0, 0, 0, 0, 0), "Bone2D/Bone2D/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 1, 1, 0, 0, 0), "Bone2D/Bone2D/Bone2D2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1)]
+internal_vertex_count = 11
+
+[node name="accessoty_bones" type="Skeleton2D" parent="."]
+
+[node name="Bone2D" type="Bone2D" parent="accessoty_bones"]
+position = Vector2(64, 50)
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 64, 50)
+
+[node name="Bone2D" type="Bone2D" parent="accessoty_bones/Bone2D"]
+position = Vector2(2, 65)
+rest = Transform2D(1, 0, 0, 1, 2, 65)
+
+[node name="Bone2D" type="Bone2D" parent="accessoty_bones/Bone2D/Bone2D"]
+position = Vector2(52, 57)
+rest = Transform2D(1, 0, 0, 1, 52, 57)
+auto_calculate_length_and_angle = false
+length = 126.595
+bone_angle = 12.973
+
+[node name="Bone2D2" type="Bone2D" parent="accessoty_bones/Bone2D/Bone2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 80.514
+bone_angle = 123.243
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(67, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(66, 85)
+shape = SubResource("CircleShape2D_km7c7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g8kaw")
+}

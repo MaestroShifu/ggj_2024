@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6t44nfq8lyi8"]
+
+[ext_resource type="Texture2D" uid="uid://bu054ilt0hbby" path="res://assets/arms/arm_2.png" id="2_cagvl"]
+
+[sub_resource type="Animation" id="Animation_qfi1j"]
+resource_name = "arm_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm_1_bones/Hombro:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.282743, -0.633555, 0.476475, -0.219911]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm_1_bones/Hombro/codo:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 1.3, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.846485, -0.987856, -0.691499, -0.918043, 0.462512, 0.329867]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm_1_bones/Hombro/codo/mano:rotation")
+tracks/2/interp = 3
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.47822, -0.0872665, -0.0261799, 0.481711, 1.22522]
+}
+
+[sub_resource type="Animation" id="Animation_b36pp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm_1_bones/Hombro:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm_1_bones/Hombro/codo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm_1_bones/Hombro/codo/mano:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.47822]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmxav"]
+_data = {
+"RESET": SubResource("Animation_b36pp"),
+"arm_animation": SubResource("Animation_qfi1j")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lidsn"]
+radius = 95.61
+
+[node name="Arm_2" type="RigidBody2D"]
+
+[node name="Polygons" type="Node2D" parent="."]
+
+[node name="arm_2" type="Polygon2D" parent="Polygons"]
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_cagvl")
+skeleton = NodePath("../../Arm_1_bones")
+polygon = PackedVector2Array(164.356, -1.9802, 76.2376, 23.7624, 25.7426, 106.931, 10.8911, 202.97, 52.4753, 309.901, 100, 408.911, 125.743, 438.614, 166.337, 464.356, 291.089, 523.762, 353.465, 548.515, 379.208, 558.416, 395.05, 577.228, 460.396, 688.119, 528.713, 723.762, 666.337, 693.069, 727.723, 575.247, 605.941, 475.247, 641.584, 425.743, 644.554, 369.307, 556.436, 379.208, 487.129, 412.871, 461.386, 409.901, 446.535, 390.099, 377.228, 320.792, 361.386, 299.01, 349.505, 277.228, 313.861, 176.238, 318.812, 75.2475, 247.525, 6.93069, 164.356, 78.2178, 153.465, 170.297, 250.495, 354.455, 278.218, 377.228, 222.772, 322.772, 419.802, 475.247, 444.554, 487.129, 394.059, 461.386)
+uv = PackedVector2Array(164.356, -1.9802, 76.2376, 23.7624, 25.7426, 106.931, 10.8911, 202.97, 52.4753, 309.901, 100, 408.911, 125.743, 438.614, 166.337, 464.356, 291.089, 523.762, 353.465, 548.515, 379.208, 558.416, 395.05, 577.228, 460.396, 688.119, 528.713, 723.762, 666.337, 693.069, 727.723, 575.247, 605.941, 475.247, 641.584, 425.743, 644.554, 369.307, 556.436, 379.208, 487.129, 412.871, 461.386, 409.901, 446.535, 390.099, 377.228, 320.792, 361.386, 299.01, 349.505, 277.228, 313.861, 176.238, 318.812, 75.2475, 247.525, 6.93069, 164.356, 78.2178, 153.465, 170.297, 250.495, 354.455, 278.218, 377.228, 222.772, 322.772, 419.802, 475.247, 444.554, 487.129, 394.059, 461.386)
+polygons = [PackedInt32Array(29, 2, 1, 0), PackedInt32Array(29, 27, 28, 0), PackedInt32Array(29, 30, 26, 27), PackedInt32Array(30, 3, 2, 29), PackedInt32Array(4, 30, 3), PackedInt32Array(30, 25, 26), PackedInt32Array(30, 33, 4), PackedInt32Array(33, 25, 30), PackedInt32Array(25, 31, 33), PackedInt32Array(24, 25, 31), PackedInt32Array(23, 31, 24), PackedInt32Array(23, 32, 31), PackedInt32Array(32, 7, 31), PackedInt32Array(31, 7, 6), PackedInt32Array(31, 5, 6), PackedInt32Array(31, 33, 4, 5), PackedInt32Array(32, 8, 7), PackedInt32Array(23, 22, 32), PackedInt32Array(22, 36, 32), PackedInt32Array(36, 8, 32), PackedInt32Array(9, 36, 8), PackedInt32Array(34, 36, 9), PackedInt32Array(34, 22, 36), PackedInt32Array(34, 21, 22), PackedInt32Array(34, 20, 21), PackedInt32Array(35, 20, 34), PackedInt32Array(35, 9, 34), PackedInt32Array(35, 10, 9), PackedInt32Array(11, 35, 10), PackedInt32Array(35, 19, 20), PackedInt32Array(35, 12, 11), PackedInt32Array(35, 16, 17, 18, 19), PackedInt32Array(35, 16, 15, 14, 13, 12)]
+bones = ["Hombro", PackedFloat32Array(1, 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0, 1, 0, 0, 0), "Hombro/codo", PackedFloat32Array(0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 1, 1, 0.5, 1, 0.42, 1), "Hombro/codo/mano", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.58, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.58, 0.58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.58, 1, 0)]
+internal_vertex_count = 8
+
+[node name="Arm_1_bones" type="Skeleton2D" parent="."]
+
+[node name="Hombro" type="Bone2D" parent="Arm_1_bones"]
+position = Vector2(102, 51)
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 102, 51)
+
+[node name="codo" type="Bone2D" parent="Arm_1_bones/Hombro"]
+position = Vector2(11, 199)
+rest = Transform2D(1, 0, 0, 1, 11, 199)
+
+[node name="mano" type="Bone2D" parent="Arm_1_bones/Hombro/codo"]
+position = Vector2(143, 78)
+rotation = 0.47822
+rest = Transform2D(0.887815, 0.4602, -0.4602, 0.887815, 143, 78)
+auto_calculate_length_and_angle = false
+length = 117.378
+bone_angle = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bmxav")
+}
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(103, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(107, 100)
+shape = SubResource("CircleShape2D_lidsn")
