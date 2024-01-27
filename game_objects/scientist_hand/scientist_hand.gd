@@ -1,14 +1,12 @@
 extends CharacterBody2D
 
-class_name SpawnBodyParts
-
-## List eyes scenes for spawn in game
-@export var eyes_scenes: Array[PackedScene]
+class_name ScientistHand
 
 ## hand move speed
 @export var hand_speed: float
 
 @onready var pin_join: PinJoint2D = $Joins/PinJoint2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var move_direction: Vector2
 
@@ -23,12 +21,20 @@ func _process(delta: float) -> void:
 	velocity += direction.normalized() * hand_speed * delta
 	if move_and_slide():
 		change_direction()
-	
+
 func change_direction() -> void:
 	if move_direction == Vector2.RIGHT:
 		move_direction = Vector2.LEFT
 	else:
 		move_direction = Vector2.RIGHT
 
+func take_body_part(body_part: BodyParts) -> void:
+	add_child(body_part)
+	body_part.global_position = pin_join.global_position
+	var diff := body_part.global_position - body_part.grip_marker.global_position
+	body_part.global_position += diff
+	pin_join.node_b = "../../%s" % get_path_to(body_part)
+
 func drop() -> void:
+	animated_sprite.play("default")
 	pin_join.node_b = ""

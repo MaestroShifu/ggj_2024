@@ -50,17 +50,9 @@ func copy_merge_body_part(body_part: BodyParts) -> void:
 	var part_duplicate := body_part.duplicate() as BodyParts
 	part_duplicate.paste_to_body()
 
-	var new_pos = body_part.global_position - body.global_position
-	var new_rot = body_part.global_rotation - body.global_rotation
-
-	# Rotating shapes about the origin
-	var x = new_pos.x * cos(new_rot) - new_pos.y * sin(new_rot)
-	var y = new_pos.x * sin(new_rot) + new_pos.y * cos(new_rot)
-
-	part_duplicate.position = Vector2(x, y)
-	part_duplicate.rotation = new_rot
-
 	body.add_part(part_duplicate)
+	part_duplicate.global_transform = body_part.global_transform
+
 	body_part.queue_free()
 
 func calculate_position() -> void:

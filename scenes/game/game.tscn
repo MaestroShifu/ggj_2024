@@ -1,9 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5kpx2jcr2t10"]
+[gd_scene load_steps=21 format=3 uid="uid://c5kpx2jcr2t10"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ng2rl"]
 [ext_resource type="Texture2D" uid="uid://cnm1yrrgtg08l" path="res://assets/background/BG_gameplay.png" id="2_3pv4g"]
+[ext_resource type="PackedScene" uid="uid://cjs72f21evxw3" path="res://game_objects/body_parts/eyes/eyes_1.tscn" id="2_7vwrx"]
 [ext_resource type="PackedScene" uid="uid://dh0py0u0x5ats" path="res://game_objects/player/player.tscn" id="2_nqydx"]
-[ext_resource type="PackedScene" uid="uid://br1yu1awnokex" path="res://game_objects/spawn_body_parts/spawn_body_parts.tscn" id="3_lsvgi"]
+[ext_resource type="Script" path="res://scenes/game/list_body_parts.gd" id="2_uxsi1"]
+[ext_resource type="PackedScene" uid="uid://b8t3s5n8881gq" path="res://game_objects/body_parts/eyes/eyes_2.tscn" id="3_233cr"]
+[ext_resource type="Texture2D" uid="uid://cy5ek3ag63dn6" path="res://assets/eyes/eyes_1.png" id="3_mn1qa"]
+[ext_resource type="PackedScene" uid="uid://br1yu1awnokex" path="res://game_objects/scientist_hand/scientist_hand.tscn" id="4_10rab"]
+[ext_resource type="PackedScene" uid="uid://b2eqj1nfjbm83" path="res://game_objects/body_parts/eyes/eyes_3.tscn" id="4_peta5"]
+[ext_resource type="PackedScene" uid="uid://vdu8n1wehbf7" path="res://game_objects/body_parts/eyes/eyes_4.tscn" id="5_x43y7"]
+[ext_resource type="Texture2D" uid="uid://dl6dv4r3bdyoa" path="res://assets/eyes/eyes_2.png" id="6_efhu7"]
+[ext_resource type="Texture2D" uid="uid://fl4vd1afnf14" path="res://assets/eyes/eyes_3.png" id="8_c8f1v"]
+[ext_resource type="Texture2D" uid="uid://bfyia4uq5wodl" path="res://assets/eyes/eyes_4.png" id="10_hwcka"]
+
+[sub_resource type="Resource" id="Resource_fqekj"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("2_7vwrx")
+icon_texture = ExtResource("3_mn1qa")
+
+[sub_resource type="Resource" id="Resource_h2g07"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("3_233cr")
+icon_texture = ExtResource("6_efhu7")
+
+[sub_resource type="Resource" id="Resource_h0q31"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("4_peta5")
+icon_texture = ExtResource("8_c8f1v")
+
+[sub_resource type="Resource" id="Resource_cj35q"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("5_x43y7")
+icon_texture = ExtResource("10_hwcka")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrlef"]
 size = Vector2(40, 2100)
@@ -11,8 +40,12 @@ size = Vector2(40, 2100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffd1q"]
 size = Vector2(40, 2100)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d41wy"]
+size = Vector2(1200, 40)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ng2rl")
+body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_fqekj"), SubResource("Resource_h2g07"), SubResource("Resource_h0q31"), SubResource("Resource_cj35q")])
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -23,7 +56,7 @@ texture = ExtResource("2_3pv4g")
 position = Vector2(540, 1536)
 bottom_percentage_position = 20
 
-[node name="SpawnBodyParts" parent="." instance=ExtResource("3_lsvgi")]
+[node name="ScientistHand" parent="." instance=ExtResource("4_10rab")]
 position = Vector2(245, 443)
 
 [node name="LeftLimit" type="StaticBody2D" parent="."]
@@ -41,3 +74,13 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightLimit"]
 shape = SubResource("RectangleShape2D_ffd1q")
+
+[node name="BottomLimit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLimit"]
+position = Vector2(540, 2150)
+shape = SubResource("RectangleShape2D_d41wy")
+
+[connection signal="body_entered" from="BottomLimit" to="." method="_on_bottom_limit_body_entered"]

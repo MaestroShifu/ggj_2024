@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://des3jxi6kvcgf"]
+[gd_scene load_steps=3 format=3 uid="uid://des3jxi6kvcgf"]
 
 [ext_resource type="PackedScene" uid="uid://c5kpx2jcr2t10" path="res://scenes/game/game.tscn" id="1_8bbgj"]
+[ext_resource type="PackedScene" uid="uid://cle0v2nl180ap" path="res://scenes/ui/panel_buttons/panel_buttons.tscn" id="2_n6knc"]
 
 [node name="Main" type="Node"]
 
 [node name="Game" parent="." instance=ExtResource("1_8bbgj")]
+
+[node name="PanelButtons" parent="." instance=ExtResource("2_n6knc")]

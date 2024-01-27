@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cle0v2nl180ap"]
+
+[ext_resource type="Script" path="res://scenes/ui/panel_buttons/panel_buttons.gd" id="1_2rbnh"]
+[ext_resource type="Texture2D" uid="uid://bkge5ikensjur" path="res://assets/buttons/gameplay_parts_BG.png" id="1_sps6p"]
+[ext_resource type="PackedScene" uid="uid://dc427jrao7pl7" path="res://scenes/ui/body_parts_button/body_parts_button.tscn" id="2_1fyax"]
+
+[node name="PanelButtons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2rbnh")
+scene_button = ExtResource("2_1fyax")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -387.0
+offset_top = -211.0
+offset_right = 387.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_sps6p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -80.5
+offset_right = 259.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2

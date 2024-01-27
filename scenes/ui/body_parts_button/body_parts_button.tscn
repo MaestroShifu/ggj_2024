@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc427jrao7pl7"]
+
+[ext_resource type="Texture2D" uid="uid://bn1pytp1hbx8r" path="res://assets/buttons/gameplay_parts_selector.png" id="1_trdex"]
+[ext_resource type="Script" path="res://scenes/ui/body_parts_button/body_parts_button.gd" id="2_c6an6"]
+
+[node name="BodyPartsButton" type="TextureButton"]
+size_flags_horizontal = 4
+texture_pressed = ExtResource("1_trdex")
+script = ExtResource("2_c6an6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 282.0
+scale = Vector2(0.5, 0.5)

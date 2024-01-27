@@ -35,3 +35,6 @@ scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_r5nhs")
 frame = 2
 frame_progress = 1.0
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(-7, -72)

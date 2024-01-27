@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8t3s5n8881gq"]
+
+[ext_resource type="Script" path="res://game_objects/body_parts/eyes/eyes.gd" id="1_vpfd0"]
+[ext_resource type="Texture2D" uid="uid://dl6dv4r3bdyoa" path="res://assets/eyes/eyes_2.png" id="2_28f8p"]
+[ext_resource type="Texture2D" uid="uid://6vmadu161m3y" path="res://assets/eyes/eyes_closed.png" id="3_31hmd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r5nhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_28f8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_31hmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_28f8p")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Eyes_2" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_vpfd0")
+max_time_eye_closed = 40
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-94, -34, -93, -28, -86, -28, -84, -21, -81, -13, -78, -3, -75, 5, -66, 17, -54, 30, -37, 42, -24, 50, -9, 52, 7, 53, 22, 52, 39, 46, 48, 42, 64, 23, 75, 9, 81, -2, 85, -10, 89, -9, 96, -15, 88, -22, 75, -30, 61, -34, 42, -37, 17, -40, -4, -41, -20, -42, -44, -42, -62, -41, -79, -39)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_r5nhs")
+frame_progress = 0.9399
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(-20, -42)
