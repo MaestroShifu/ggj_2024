@@ -113,11 +113,11 @@ internal_vertex_count = 8
 
 [node name="Bone2D" type="Bone2D" parent="leg_bones"]
 position = Vector2(80, 65)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 80, 65)
 
 [node name="Bone2D" type="Bone2D" parent="leg_bones/Bone2D"]
 position = Vector2(154, 182)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 154, 182)
 
 [node name="Bone2D" type="Bone2D" parent="leg_bones/Bone2D/Bone2D"]
