@@ -137,15 +137,16 @@ internal_vertex_count = 11
 
 [node name="Bone2D" type="Bone2D" parent="accessoty_bones"]
 position = Vector2(64, 50)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 64, 50)
 
 [node name="Bone2D" type="Bone2D" parent="accessoty_bones/Bone2D"]
 position = Vector2(2, 65)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 2, 65)
 
 [node name="Bone2D" type="Bone2D" parent="accessoty_bones/Bone2D/Bone2D"]
 position = Vector2(52, 57)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 52, 57)
 auto_calculate_length_and_angle = false
 length = 126.595
