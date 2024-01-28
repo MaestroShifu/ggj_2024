@@ -171,6 +171,7 @@ bottom_percentage_position = 20
 
 [node name="ScientistHand" parent="." instance=ExtResource("4_10rab")]
 position = Vector2(245, 443)
+hand_speed = 200.0
 
 [node name="LeftLimit" type="StaticBody2D" parent="."]
 position = Vector2(-20, 960)
