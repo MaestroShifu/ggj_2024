@@ -15,11 +15,11 @@ func _ready() -> void:
 	GameEvents.set_possibles_body_parts.connect(_on_set_possibles_body_parts)
 	GameEvents.change_attempts.connect(_on_change_attempts)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	attempts.text = str(current_attempts)
 
-func _on_change_attempts(attempts: int) -> void:
-	current_attempts = attempts
+func _on_change_attempts(attempt: int) -> void:
+	current_attempts = attempt
 
 func _on_set_possibles_body_parts(parts: Array[ListBodyParts]) -> void:
 	visible = true

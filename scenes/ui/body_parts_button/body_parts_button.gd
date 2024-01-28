@@ -7,7 +7,7 @@ class_name BodyPartsButton
 
 @onready var texture_rect: TextureRect = $TextureRect
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not texture_rect.texture:
 		if len(texture_path) == 0:
 			push_error("plaese set texture path")

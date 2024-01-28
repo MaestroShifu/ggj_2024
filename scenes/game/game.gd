@@ -57,7 +57,7 @@ func game_events() -> void:
 
 func set_pool_items() -> void:
 	for i in range(3):
-		var idx := randi() % 2
+		var idx := randi() % body_parts.size()
 		item_pool.append(body_parts[idx])
 	GameEvents.emit_set_possibles_body_parts(item_pool)
 

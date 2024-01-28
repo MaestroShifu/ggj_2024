@@ -1,47 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6t44nfq8lyi8"]
+[gd_scene load_steps=7 format=3 uid="uid://c6t44nfq8lyi8"]
 
+[ext_resource type="Script" path="res://game_objects/body_parts/arms/arm.gd" id="1_evgil"]
 [ext_resource type="Texture2D" uid="uid://bu054ilt0hbby" path="res://assets/arms/arm_2.png" id="2_cagvl"]
-
-[sub_resource type="Animation" id="Animation_qfi1j"]
-resource_name = "arm_animation"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Arm_1_bones/Hombro:rotation")
-tracks/0/interp = 3
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.282743, -0.633555, 0.476475, -0.219911]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Arm_1_bones/Hombro/codo:rotation")
-tracks/1/interp = 3
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 1.3, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -0.846485, -0.987856, -0.691499, -0.918043, 0.462512, 0.329867]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Arm_1_bones/Hombro/codo/mano:rotation")
-tracks/2/interp = 3
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.47822, -0.0872665, -0.0261799, 0.481711, 1.22522]
-}
 
 [sub_resource type="Animation" id="Animation_b36pp"]
 length = 0.001
@@ -82,16 +42,58 @@ tracks/2/keys = {
 "values": [0.47822]
 }
 
+[sub_resource type="Animation" id="Animation_qfi1j"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm_1_bones/Hombro:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.282743, -0.633555, 0.476475, -0.219911]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm_1_bones/Hombro/codo:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 1.3, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.846485, -0.987856, -0.691499, -0.918043, 0.462512, 0.329867]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm_1_bones/Hombro/codo/mano:rotation")
+tracks/2/interp = 3
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.47822, -0.0872665, -0.0261799, 0.481711, 1.22522]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bmxav"]
 _data = {
 "RESET": SubResource("Animation_b36pp"),
-"arm_animation": SubResource("Animation_qfi1j")
+"default": SubResource("Animation_qfi1j")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lidsn"]
 radius = 95.61
 
 [node name="Arm_2" type="RigidBody2D"]
+script = ExtResource("1_evgil")
 
 [node name="Polygons" type="Node2D" parent="."]
 
@@ -109,7 +111,6 @@ internal_vertex_count = 8
 
 [node name="Hombro" type="Bone2D" parent="Arm_1_bones"]
 position = Vector2(102, 51)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 102, 51)
 
 [node name="codo" type="Bone2D" parent="Arm_1_bones/Hombro"]
@@ -119,6 +120,7 @@ rest = Transform2D(1, 0, 0, 1, 11, 199)
 [node name="mano" type="Bone2D" parent="Arm_1_bones/Hombro/codo"]
 position = Vector2(143, 78)
 rotation = 0.47822
+scale = Vector2(1, 1)
 rest = Transform2D(0.887815, 0.4602, -0.4602, 0.887815, 143, 78)
 auto_calculate_length_and_angle = false
 length = 117.378

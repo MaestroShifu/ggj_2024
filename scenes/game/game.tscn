@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5kpx2jcr2t10"]
+[gd_scene load_steps=33 format=3 uid="uid://c5kpx2jcr2t10"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ng2rl"]
 [ext_resource type="Texture2D" uid="uid://cnm1yrrgtg08l" path="res://assets/background/BG_gameplay.png" id="2_3pv4g"]
@@ -13,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://dl6dv4r3bdyoa" path="res://assets/eyes/eyes_2.png" id="6_efhu7"]
 [ext_resource type="Texture2D" uid="uid://fl4vd1afnf14" path="res://assets/eyes/eyes_3.png" id="8_c8f1v"]
 [ext_resource type="Texture2D" uid="uid://bfyia4uq5wodl" path="res://assets/eyes/eyes_4.png" id="10_hwcka"]
+[ext_resource type="PackedScene" uid="uid://l58jumdstrrd" path="res://game_objects/body_parts/arms/arm_1.tscn" id="11_15uig"]
+[ext_resource type="Texture2D" uid="uid://b7bl5y31mbmxb" path="res://assets/arms/arm_1.png" id="12_1rtjm"]
+[ext_resource type="PackedScene" uid="uid://c6t44nfq8lyi8" path="res://game_objects/body_parts/arms/arm_2.tscn" id="13_777n3"]
+[ext_resource type="Texture2D" uid="uid://bu054ilt0hbby" path="res://assets/arms/arm_2.png" id="14_omqe4"]
+[ext_resource type="PackedScene" uid="uid://bgg05snfkedtw" path="res://game_objects/body_parts/arms/arm_3.tscn" id="15_kepvb"]
+[ext_resource type="Texture2D" uid="uid://b8slgo50uh5mo" path="res://assets/arms/arm_3.png" id="16_2kwka"]
+[ext_resource type="PackedScene" uid="uid://kelp7uh1eenn" path="res://game_objects/body_parts/arms/arm_4.tscn" id="17_ur0nl"]
+[ext_resource type="Texture2D" uid="uid://jxeu5s4kd7rk" path="res://assets/arms/arm_4.png" id="18_fbrbs"]
 
 [sub_resource type="Resource" id="Resource_fqekj"]
 script = ExtResource("2_uxsi1")
@@ -34,6 +42,26 @@ script = ExtResource("2_uxsi1")
 body_part = ExtResource("5_x43y7")
 icon_texture = ExtResource("10_hwcka")
 
+[sub_resource type="Resource" id="Resource_c0lax"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("11_15uig")
+icon_texture = ExtResource("12_1rtjm")
+
+[sub_resource type="Resource" id="Resource_cceml"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("13_777n3")
+icon_texture = ExtResource("14_omqe4")
+
+[sub_resource type="Resource" id="Resource_kav7a"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("15_kepvb")
+icon_texture = ExtResource("16_2kwka")
+
+[sub_resource type="Resource" id="Resource_u7ixh"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("17_ur0nl")
+icon_texture = ExtResource("18_fbrbs")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrlef"]
 size = Vector2(40, 2100)
 
@@ -45,7 +73,7 @@ size = Vector2(1200, 40)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ng2rl")
-body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_fqekj"), SubResource("Resource_h2g07"), SubResource("Resource_h0q31"), SubResource("Resource_cj35q")])
+body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_fqekj"), SubResource("Resource_h2g07"), SubResource("Resource_h0q31"), SubResource("Resource_cj35q"), SubResource("Resource_c0lax"), SubResource("Resource_cceml"), SubResource("Resource_kav7a"), SubResource("Resource_u7ixh")])
 maximum_attempts = 5
 
 [node name="Background" type="TextureRect" parent="."]
