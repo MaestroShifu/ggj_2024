@@ -1,6 +1,8 @@
 @tool
 extends BodyParts
 
+class_name Eye
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 ## Durtion max in eye closed animation
