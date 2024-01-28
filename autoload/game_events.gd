@@ -3,6 +3,10 @@ extends Node
 signal set_possibles_body_parts(parts: Array[ListBodyParts])
 signal select_body_part(index: int)
 signal change_attempts(attempts: int) 
+signal change_game_scene(scene: Utils.GAME_SCENE)
+
+func emit_change_game_scene(scene: Utils.GAME_SCENE) -> void:
+	change_game_scene.emit(scene)
 
 func emit_change_attempts(attempts: int) -> void:
 	change_attempts.emit(attempts)

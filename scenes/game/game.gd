@@ -95,7 +95,7 @@ func reset_loop_game() -> void:
 	GameEvents.emit_change_attempts(current_attempts)
 	if current_attempts == 0:
 		game_state = GAME_STATE.FINISH
-		print("Se acabron los intentos") 
+		GameEvents.emit_change_game_scene(Utils.GAME_SCENE.FINISH)
 
 func _on_bottom_limit_body_entered(body: BodyParts) -> void:
 	if body.is_valid:

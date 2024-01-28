@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://des3jxi6kvcgf"]
+[gd_scene load_steps=6 format=3 uid="uid://des3jxi6kvcgf"]
 
-[ext_resource type="PackedScene" uid="uid://c5kpx2jcr2t10" path="res://scenes/game/game.tscn" id="1_8bbgj"]
-[ext_resource type="PackedScene" uid="uid://cle0v2nl180ap" path="res://scenes/ui/panel_buttons/panel_buttons.tscn" id="2_n6knc"]
+[ext_resource type="Script" path="res://main.gd" id="1_qwdsn"]
+[ext_resource type="PackedScene" uid="uid://c7i03l4h7k57f" path="res://scenes/gameplay/gameplay.tscn" id="2_bjcbf"]
+[ext_resource type="PackedScene" uid="uid://cut3my13u48i" path="res://scenes/finish_game/finish_game.tscn" id="3_3qimd"]
+[ext_resource type="PackedScene" uid="uid://dcvlqgbf7ktlu" path="res://scenes/credits/credits.tscn" id="4_x2slw"]
+[ext_resource type="PackedScene" uid="uid://83elvj7uxbf1" path="res://scenes/main_menu/main_menu.tscn" id="5_5tpj4"]
 
 [node name="Main" type="Node"]
-
-[node name="Game" parent="." instance=ExtResource("1_8bbgj")]
-
-[node name="PanelButtons" parent="." instance=ExtResource("2_n6knc")]
+script = ExtResource("1_qwdsn")
+gameplay_scene = ExtResource("2_bjcbf")
+finish_scene = ExtResource("3_3qimd")
+credits_scene = ExtResource("4_x2slw")
+main_menu_scene = ExtResource("5_5tpj4")

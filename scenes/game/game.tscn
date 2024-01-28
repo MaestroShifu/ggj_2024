@@ -30,11 +30,11 @@
 [ext_resource type="Texture2D" uid="uid://t4y03stxu0er" path="res://assets/iconsParts/arm_icon2.png" id="22_wq3df"]
 [ext_resource type="Texture2D" uid="uid://x8swf5kr0xnt" path="res://assets/iconsParts/arm_icon3.png" id="24_6w86c"]
 [ext_resource type="Texture2D" uid="uid://c8lb1sx8fm6oc" path="res://assets/iconsParts/arm_icon4.png" id="26_5g5l3"]
-[ext_resource type="PackedScene" uid="uid://drnosqvmpjh05" path="res://game_objects/body_parts/Legs/leg_1.tscn" id="27_j1ixd"]
+[ext_resource type="PackedScene" uid="uid://drnosqvmpjh05" path="res://game_objects/body_parts/legs/leg_1.tscn" id="27_j1ixd"]
 [ext_resource type="Texture2D" uid="uid://dpn21m7isg2pb" path="res://assets/iconsParts/leg_icon1.png" id="28_22qwx"]
-[ext_resource type="PackedScene" uid="uid://bqt2b4dc6hhhc" path="res://game_objects/body_parts/Legs/leg_2.tscn" id="29_mhpe4"]
+[ext_resource type="PackedScene" uid="uid://bqt2b4dc6hhhc" path="res://game_objects/body_parts/legs/leg_2.tscn" id="29_mhpe4"]
 [ext_resource type="Texture2D" uid="uid://jqaq58js5kho" path="res://assets/iconsParts/leg_icon2.png" id="30_4sj74"]
-[ext_resource type="PackedScene" uid="uid://joyoksxjtn4c" path="res://game_objects/body_parts/Legs/leg_3.tscn" id="31_koitp"]
+[ext_resource type="PackedScene" uid="uid://joyoksxjtn4c" path="res://game_objects/body_parts/legs/leg_3.tscn" id="31_koitp"]
 [ext_resource type="Texture2D" uid="uid://bie6iqddn1f2o" path="res://assets/iconsParts/leg_icon3.png" id="32_uxanh"]
 [ext_resource type="PackedScene" uid="uid://c4isq0q1kei6d" path="res://game_objects/body_parts/mouth/mouth_1.tscn" id="33_nijmk"]
 [ext_resource type="Texture2D" uid="uid://b86cn1pi3jly" path="res://assets/iconsParts/mouth_icon1.png" id="34_k86i6"]
@@ -46,7 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://bh33anxiqn2xc" path="res://assets/iconsParts/mouth_icon4.png" id="40_hbe0g"]
 [ext_resource type="PackedScene" uid="uid://dfe1156812tc2" path="res://game_objects/body_parts/mouth/mouth_5.tscn" id="41_81frb"]
 [ext_resource type="Texture2D" uid="uid://cdb8vsfosjfg4" path="res://assets/iconsParts/mouth_icon5.png" id="42_6t4qy"]
-[ext_resource type="PackedScene" uid="uid://c4musfuf2gv8u" path="res://game_objects/scientist_hand/scientist.tscn" id="45_wrqk2"]
+[ext_resource type="PackedScene" uid="uid://b1466ypmv1fqy" path="res://game_objects/scientist_hand/scientist.tscn" id="45_wrqk2"]
 
 [sub_resource type="Resource" id="Resource_cia7n"]
 script = ExtResource("2_uxsi1")
@@ -197,8 +197,6 @@ position = Vector2(57, -213)
 scale = Vector2(1.6, 1.6)
 
 [node name="Player" parent="." instance=ExtResource("2_nqydx")]
-position = Vector2(540, 1440)
-bottom_percentage_position = 25
 
 [node name="ScientistHand" parent="." instance=ExtResource("4_10rab")]
 position = Vector2(245, 443)

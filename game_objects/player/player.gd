@@ -15,12 +15,18 @@ const BODY_NODE_NAME = "Body"
 @export_range(0, 100) var bottom_percentage_position: int
 
 var valid_node: String = ""
+var show_monster: bool = false
 
 func _ready() -> void:
 	if len(body_player_scenes) <= 0:
 		push_error("You need load body players valid")
 		return
-	start_body()
+
+	var nodes := get_children()
+	if len(nodes) == 0:
+		start_body()
+	else:
+		show_monster = true
 
 func _process(delta: float) -> void:
 	calculate_position()
@@ -28,6 +34,8 @@ func _process(delta: float) -> void:
 	if body:
 		var vel_degrees_rotation := rotation_speed * delta
 		body.rotate(deg_to_rad(vel_degrees_rotation))
+		if show_monster:
+			bottom_percentage_position = 55
 
 func paste() -> bool:
 	var body_part: BodyParts
