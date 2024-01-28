@@ -13,7 +13,9 @@ config_version=5
 config/name="global_game_jams_2024"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/image="res://assets/background/logo_window.png"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=4000
 
 [autoload]
 
