@@ -53,6 +53,7 @@ func game_events() -> void:
 	elif game_state == GAME_STATE.PASTE:
 		var is_paste := player.paste()
 		if is_selected and is_paste:
+			GameEvents.emit_sfx_play_sounds(Utils.FSX_SOUND.PASTE)
 			reset_loop_game()
 
 func set_pool_items() -> void:
