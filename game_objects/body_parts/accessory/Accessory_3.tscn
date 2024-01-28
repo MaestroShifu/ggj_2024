@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://vnk8r1c82v8x"]
 
 [ext_resource type="Texture2D" uid="uid://dt2e0cafuvfw4" path="res://assets/accessory/accessory_3.png" id="1_78gf3"]
-[ext_resource type="Script" path="res://game_objects/body_parts/accessorys/accessory.gd" id="1_h257v"]
+[ext_resource type="Script" path="res://game_objects/body_parts/accessory/accessory.gd" id="1_h257v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_km7c7"]
 radius = 66.9

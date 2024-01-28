@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://br1yu1awnokex"]
+[gd_scene load_steps=6 format=3 uid="uid://br1yu1awnokex"]
 
 [ext_resource type="Texture2D" uid="uid://dwms2qa2pnv6a" path="res://assets/background/gameplay_hand.png" id="1_60e4b"]
 [ext_resource type="Script" path="res://game_objects/scientist_hand/scientist_hand.gd" id="1_cqhmo"]
@@ -15,22 +15,22 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_g25gk")
+}],
+"loop": false,
+"name": &"drop",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g25gk")
 }, {
 "duration": 1.0,
 "texture": ExtResource("1_60e4b")
 }],
 "loop": false,
-"name": &"default",
-"speed": 8.0
+"name": &"take",
+"speed": 20.0
 }]
-
-[sub_resource type="Animation" id="Animation_hn3pi"]
-resource_name = "new_animation"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbb1u"]
-_data = {
-"new_animation": SubResource("Animation_hn3pi")
-}
 
 [node name="ScientistHand" type="CharacterBody2D"]
 collision_layer = 2
@@ -44,16 +44,10 @@ shape = SubResource("RectangleShape2D_fd4fj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r7rev")
-frame = 2
-frame_progress = 1.0
+animation = &"take"
 
 [node name="Joins" type="Node2D" parent="."]
 position = Vector2(78, 45)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Joins"]
 node_a = NodePath("../..")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_sbb1u")
-}

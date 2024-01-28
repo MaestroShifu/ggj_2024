@@ -1,9 +1,10 @@
-[gd_scene load_steps=69 format=3 uid="uid://c5kpx2jcr2t10"]
+[gd_scene load_steps=75 format=3 uid="uid://c5kpx2jcr2t10"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ng2rl"]
 [ext_resource type="Texture2D" uid="uid://cnm1yrrgtg08l" path="res://assets/background/BG_gameplay.png" id="2_3pv4g"]
 [ext_resource type="PackedScene" uid="uid://cjs72f21evxw3" path="res://game_objects/body_parts/eyes/eyes_1.tscn" id="2_7vwrx"]
 [ext_resource type="PackedScene" uid="uid://dh0py0u0x5ats" path="res://game_objects/player/player.tscn" id="2_nqydx"]
+[ext_resource type="Script" path="res://scenes/game/category_body_parts.gd" id="2_obxrt"]
 [ext_resource type="Script" path="res://scenes/game/list_body_parts.gd" id="2_uxsi1"]
 [ext_resource type="PackedScene" uid="uid://b8t3s5n8881gq" path="res://game_objects/body_parts/eyes/eyes_2.tscn" id="3_233cr"]
 [ext_resource type="Texture2D" uid="uid://b7gwlqs4uu1u3" path="res://assets/iconsParts/eye_icon1.png" id="3_eo7ih"]
@@ -14,15 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://x2gf18ixr5fd" path="res://assets/iconsParts/eye_icon3.png" id="8_va6tt"]
 [ext_resource type="Texture2D" uid="uid://ipfygdd8q4bn" path="res://assets/iconsParts/eye_icon4.png" id="10_gs8o8"]
 [ext_resource type="PackedScene" uid="uid://l58jumdstrrd" path="res://game_objects/body_parts/arms/arm_1.tscn" id="11_15uig"]
-[ext_resource type="PackedScene" uid="uid://cybngqwvpwi6n" path="res://game_objects/body_parts/accessorys/accessory_1.tscn" id="11_gxcih"]
+[ext_resource type="PackedScene" uid="uid://cybngqwvpwi6n" path="res://game_objects/body_parts/accessory/accessory_1.tscn" id="11_q34ug"]
 [ext_resource type="Texture2D" uid="uid://chyghsbhni8ka" path="res://assets/iconsParts/accessory_icon1.png" id="12_vw1jo"]
-[ext_resource type="PackedScene" uid="uid://bwptr1sk2sppy" path="res://game_objects/body_parts/accessorys/accessory_2.tscn" id="13_6up1t"]
 [ext_resource type="PackedScene" uid="uid://c6t44nfq8lyi8" path="res://game_objects/body_parts/arms/arm_2.tscn" id="13_777n3"]
+[ext_resource type="PackedScene" uid="uid://bwptr1sk2sppy" path="res://game_objects/body_parts/accessory/accessory_2.tscn" id="13_td0qn"]
 [ext_resource type="Texture2D" uid="uid://c0xp4m7pq07ns" path="res://assets/iconsParts/accessory_icon2.png" id="14_67lr5"]
-[ext_resource type="PackedScene" uid="uid://vnk8r1c82v8x" path="res://game_objects/body_parts/accessorys/Accessory_3.tscn" id="15_1dk3v"]
+[ext_resource type="PackedScene" uid="uid://vnk8r1c82v8x" path="res://game_objects/body_parts/accessory/Accessory_3.tscn" id="15_2ugn4"]
 [ext_resource type="PackedScene" uid="uid://bgg05snfkedtw" path="res://game_objects/body_parts/arms/arm_3.tscn" id="15_kepvb"]
 [ext_resource type="Texture2D" uid="uid://bgle1ny7vn0y" path="res://assets/iconsParts/accessory_icon3.png" id="16_srjlq"]
-[ext_resource type="PackedScene" uid="uid://ptxiw723pdpo" path="res://game_objects/body_parts/accessorys/accessory_4.tscn" id="17_bkucn"]
+[ext_resource type="PackedScene" uid="uid://ptxiw723pdpo" path="res://game_objects/body_parts/accessory/accessory_4.tscn" id="17_h5e7e"]
 [ext_resource type="PackedScene" uid="uid://kelp7uh1eenn" path="res://game_objects/body_parts/arms/arm_4.tscn" id="17_ur0nl"]
 [ext_resource type="Texture2D" uid="uid://ckxvctxclifh7" path="res://assets/iconsParts/accessory_icon4.png" id="18_kcgic"]
 [ext_resource type="Texture2D" uid="uid://dqr8cn8tnmhqq" path="res://assets/iconsParts/arm_icon1.png" id="20_5v00c"]
@@ -46,105 +47,130 @@
 [ext_resource type="PackedScene" uid="uid://dfe1156812tc2" path="res://game_objects/body_parts/mouth/mouth_5.tscn" id="41_81frb"]
 [ext_resource type="Texture2D" uid="uid://cdb8vsfosjfg4" path="res://assets/iconsParts/mouth_icon5.png" id="42_6t4qy"]
 
-[sub_resource type="Resource" id="Resource_fqekj"]
+[sub_resource type="Resource" id="Resource_cia7n"]
 script = ExtResource("2_uxsi1")
-body_part = ExtResource("2_7vwrx")
-icon_texture = ExtResource("3_eo7ih")
-
-[sub_resource type="Resource" id="Resource_h2g07"]
-script = ExtResource("2_uxsi1")
-body_part = ExtResource("3_233cr")
-icon_texture = ExtResource("6_03hkd")
-
-[sub_resource type="Resource" id="Resource_h0q31"]
-script = ExtResource("2_uxsi1")
-body_part = ExtResource("4_peta5")
-icon_texture = ExtResource("8_va6tt")
-
-[sub_resource type="Resource" id="Resource_cj35q"]
-script = ExtResource("2_uxsi1")
-body_part = ExtResource("5_x43y7")
-icon_texture = ExtResource("10_gs8o8")
-
-[sub_resource type="Resource" id="Resource_6wwls"]
-script = ExtResource("2_uxsi1")
-body_part = ExtResource("11_gxcih")
+body_part = ExtResource("11_q34ug")
 icon_texture = ExtResource("12_vw1jo")
 
-[sub_resource type="Resource" id="Resource_od6sq"]
+[sub_resource type="Resource" id="Resource_tiybf"]
 script = ExtResource("2_uxsi1")
-body_part = ExtResource("13_6up1t")
+body_part = ExtResource("13_td0qn")
 icon_texture = ExtResource("14_67lr5")
 
-[sub_resource type="Resource" id="Resource_g3vsn"]
+[sub_resource type="Resource" id="Resource_va3mp"]
 script = ExtResource("2_uxsi1")
-body_part = ExtResource("15_1dk3v")
+body_part = ExtResource("15_2ugn4")
 icon_texture = ExtResource("16_srjlq")
 
-[sub_resource type="Resource" id="Resource_gggv8"]
+[sub_resource type="Resource" id="Resource_1to5y"]
 script = ExtResource("2_uxsi1")
-body_part = ExtResource("17_bkucn")
+body_part = ExtResource("17_h5e7e")
 icon_texture = ExtResource("18_kcgic")
 
-[sub_resource type="Resource" id="Resource_v7lm5"]
+[sub_resource type="Resource" id="Resource_u6y5j"]
+script = ExtResource("2_obxrt")
+category = 0
+list_body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_cia7n"), SubResource("Resource_tiybf"), SubResource("Resource_va3mp"), SubResource("Resource_1to5y")])
+
+[sub_resource type="Resource" id="Resource_aouxs"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("11_15uig")
 icon_texture = ExtResource("20_5v00c")
 
-[sub_resource type="Resource" id="Resource_m051m"]
+[sub_resource type="Resource" id="Resource_cmaep"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("13_777n3")
 icon_texture = ExtResource("22_wq3df")
 
-[sub_resource type="Resource" id="Resource_p87pl"]
+[sub_resource type="Resource" id="Resource_djj8u"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("15_kepvb")
 icon_texture = ExtResource("24_6w86c")
 
-[sub_resource type="Resource" id="Resource_oyknt"]
+[sub_resource type="Resource" id="Resource_t6nxj"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("17_ur0nl")
 icon_texture = ExtResource("26_5g5l3")
 
-[sub_resource type="Resource" id="Resource_ik106"]
+[sub_resource type="Resource" id="Resource_03abk"]
+script = ExtResource("2_obxrt")
+category = 1
+list_body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_aouxs"), SubResource("Resource_cmaep"), SubResource("Resource_djj8u"), SubResource("Resource_t6nxj")])
+
+[sub_resource type="Resource" id="Resource_2nlaa"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("2_7vwrx")
+icon_texture = ExtResource("3_eo7ih")
+
+[sub_resource type="Resource" id="Resource_ty0xn"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("3_233cr")
+icon_texture = ExtResource("6_03hkd")
+
+[sub_resource type="Resource" id="Resource_alo4o"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("4_peta5")
+icon_texture = ExtResource("8_va6tt")
+
+[sub_resource type="Resource" id="Resource_ywfqm"]
+script = ExtResource("2_uxsi1")
+body_part = ExtResource("5_x43y7")
+icon_texture = ExtResource("10_gs8o8")
+
+[sub_resource type="Resource" id="Resource_duu3j"]
+script = ExtResource("2_obxrt")
+category = 2
+list_body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_2nlaa"), SubResource("Resource_ty0xn"), SubResource("Resource_alo4o"), SubResource("Resource_ywfqm")])
+
+[sub_resource type="Resource" id="Resource_lir7e"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("27_j1ixd")
 icon_texture = ExtResource("28_22qwx")
 
-[sub_resource type="Resource" id="Resource_4dw7w"]
+[sub_resource type="Resource" id="Resource_s160b"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("29_mhpe4")
 icon_texture = ExtResource("30_4sj74")
 
-[sub_resource type="Resource" id="Resource_51kxo"]
+[sub_resource type="Resource" id="Resource_jeshe"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("31_koitp")
 icon_texture = ExtResource("32_uxanh")
 
-[sub_resource type="Resource" id="Resource_0bdyp"]
+[sub_resource type="Resource" id="Resource_hvya1"]
+script = ExtResource("2_obxrt")
+category = 3
+list_body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_lir7e"), SubResource("Resource_s160b"), SubResource("Resource_jeshe")])
+
+[sub_resource type="Resource" id="Resource_d64kw"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("33_nijmk")
 icon_texture = ExtResource("34_k86i6")
 
-[sub_resource type="Resource" id="Resource_rfif2"]
+[sub_resource type="Resource" id="Resource_wy4oj"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("35_udxwf")
 icon_texture = ExtResource("36_ss3ng")
 
-[sub_resource type="Resource" id="Resource_a41su"]
+[sub_resource type="Resource" id="Resource_rvhm2"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("37_jo8vh")
 icon_texture = ExtResource("38_slcv2")
 
-[sub_resource type="Resource" id="Resource_bb6gc"]
+[sub_resource type="Resource" id="Resource_6uwpi"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("39_5w1w8")
 icon_texture = ExtResource("40_hbe0g")
 
-[sub_resource type="Resource" id="Resource_6j30t"]
+[sub_resource type="Resource" id="Resource_2ytxn"]
 script = ExtResource("2_uxsi1")
 body_part = ExtResource("41_81frb")
 icon_texture = ExtResource("42_6t4qy")
+
+[sub_resource type="Resource" id="Resource_fxtii"]
+script = ExtResource("2_obxrt")
+category = 4
+list_body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_d64kw"), SubResource("Resource_wy4oj"), SubResource("Resource_rvhm2"), SubResource("Resource_6uwpi"), SubResource("Resource_2ytxn")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrlef"]
 size = Vector2(40, 2100)
@@ -157,7 +183,7 @@ size = Vector2(1200, 40)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ng2rl")
-body_parts = Array[ExtResource("2_uxsi1")]([SubResource("Resource_fqekj"), SubResource("Resource_h2g07"), SubResource("Resource_h0q31"), SubResource("Resource_cj35q"), SubResource("Resource_6wwls"), SubResource("Resource_od6sq"), SubResource("Resource_g3vsn"), SubResource("Resource_gggv8"), SubResource("Resource_v7lm5"), SubResource("Resource_m051m"), SubResource("Resource_p87pl"), SubResource("Resource_oyknt"), SubResource("Resource_ik106"), SubResource("Resource_4dw7w"), SubResource("Resource_51kxo"), SubResource("Resource_0bdyp"), SubResource("Resource_rfif2"), SubResource("Resource_a41su"), SubResource("Resource_bb6gc"), SubResource("Resource_6j30t")])
+category_body_parts = Array[ExtResource("2_obxrt")]([SubResource("Resource_u6y5j"), SubResource("Resource_03abk"), SubResource("Resource_duu3j"), SubResource("Resource_hvya1"), SubResource("Resource_fxtii")])
 maximum_attempts = 5
 
 [node name="Background" type="TextureRect" parent="."]
@@ -166,12 +192,12 @@ offset_bottom = 40.0
 texture = ExtResource("2_3pv4g")
 
 [node name="Player" parent="." instance=ExtResource("2_nqydx")]
-position = Vector2(540, 1536)
-bottom_percentage_position = 20
+position = Vector2(540, 1440)
+bottom_percentage_position = 25
 
 [node name="ScientistHand" parent="." instance=ExtResource("4_10rab")]
 position = Vector2(245, 443)
-hand_speed = 200.0
+hand_speed = 50.0
 
 [node name="LeftLimit" type="StaticBody2D" parent="."]
 position = Vector2(-20, 960)

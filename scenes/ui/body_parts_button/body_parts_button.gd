@@ -13,8 +13,11 @@ func _process(_delta: float) -> void:
 			push_error("plaese set texture path")
 			return
 
-		var texture := load(texture_path)
-		if not texture: 
+		var tex := load(texture_path)
+		if not tex: 
 			push_error("Failed load texture")
 			return
-		texture_rect.texture = texture
+		texture_rect.texture = tex
+
+func selectable() -> void:
+	texture_normal = texture_pressed

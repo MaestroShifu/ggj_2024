@@ -3,7 +3,7 @@ extends Node2D
 class_name Game
 
 ## List of Body parts
-@export var body_parts: Array[ListBodyParts]
+@export var category_body_parts: Array[CategoryBodyParts]
 
 # Maximum attempts the player
 @export var maximum_attempts: int
@@ -22,8 +22,8 @@ var item_pool: Array[ListBodyParts] = []
 var current_attempts: int = 0
 
 func _ready() -> void:
-	if len(body_parts) == 0:
-		push_error("Please fill bodyparts!!")
+	if len(category_body_parts) == 0:
+		push_error("Please fill category body parts!!")
 		return
 	GameEvents.select_body_part.connect(_on_select_body_part)
 	current_attempts = maximum_attempts
@@ -56,9 +56,32 @@ func game_events() -> void:
 			reset_loop_game()
 
 func set_pool_items() -> void:
-	for i in range(3):
-		var idx := randi() % body_parts.size()
-		item_pool.append(body_parts[idx])
+	var categories: Array[CategoryBodyParts]
+
+	var is_finish: bool = true
+	while is_finish:
+		var idx := randi() % category_body_parts.size()
+		if len(categories) == 0:
+			categories.append(category_body_parts[idx])
+			continue
+
+		var temp_category := category_body_parts[idx]
+		var is_valid := false
+		for category in categories:
+			if category.category == temp_category.category:
+				is_valid = true
+				break
+
+		if not is_valid:
+			categories.append(category_body_parts[idx])
+
+		if categories.size() == 3:
+			is_finish = false
+
+	for category in categories:
+		var idx := randi() % category.list_body_parts.size()
+		item_pool.append(category.list_body_parts[idx])
+
 	GameEvents.emit_set_possibles_body_parts(item_pool)
 
 func reset_item_pool() -> void:

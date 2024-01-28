@@ -113,7 +113,6 @@ internal_vertex_count = 7
 
 [node name="Hombro" type="Bone2D" parent="Arm_1_bones"]
 position = Vector2(102, 51)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 102, 51)
 
 [node name="codo" type="Bone2D" parent="Arm_1_bones/Hombro"]
