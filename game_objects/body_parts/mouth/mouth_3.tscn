@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://de6riv15sb5s5"]
+
+[ext_resource type="Script" path="res://game_objects/body_parts/body_parts.gd" id="1_k7qo8"]
+[ext_resource type="Texture2D" uid="uid://dx2wwjmfv34wt" path="res://assets/mouth/mouth_3.png" id="2_gkyj6"]
+
+[node name="Mouth_3" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_k7qo8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-115, -61, -121, -53, -107, -14, -93, 20, -81, 41, -68, 54, -40, 69, -14, 75, 3, 76, 37, 72, 58, 61, 80, 46, 97, 27, 107, 5, 117, -29, 122, -61, 114, -68, 103, -57, 82, -50, 58, -44, 29, -41, 7, -41, -11, -41, -44, -43, -66, -45, -86, -50, -106, -56)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_gkyj6")
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(121, -57)

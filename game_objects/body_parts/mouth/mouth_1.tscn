@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4isq0q1kei6d"]
+
+[ext_resource type="Script" path="res://game_objects/body_parts/body_parts.gd" id="1_werqd"]
+[ext_resource type="Texture2D" uid="uid://s330nt16u8p1" path="res://assets/mouth/mouth_1.png" id="2_2ck2d"]
+
+[node name="Mouth_1" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_werqd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-135, 23, -123, 33, -107, 42, -103, 37, -93, 26, -76, 20, -47, 15, -15, 12, 17, 10, 44, 11, 69, 15, 94, 24, 104, 29, 107, 41, 118, 32, 136, 18, 132, 11, 118, 19, 113, 15, 111, -2, 107, -14, 96, -22, 81, -19, 71, -8, 65, -27, 56, -35, 45, -38, 28, -32, 21, -23, 16, -6, 12, -22, 3, -33, -9, -37, -21, -33, -28, -23, -31, -16, -32, -4, -39, -16, -46, -25, -58, -28, -70, -27, -79, -20, -81, -11, -81, -2, -91, -7, -100, -8, -109, -3, -114, 6, -113, 18, -117, 21, -131, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_2ck2d")
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(135, 20)

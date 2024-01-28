@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cybngqwvpwi6n"]
+
+[ext_resource type="Texture2D" uid="uid://7akt8eglp0ny" path="res://assets/accessory/accessory_1.png" id="1_2hrnu"]
+[ext_resource type="Script" path="res://game_objects/body_parts/body_parts.gd" id="1_jo5av"]
+
+[node name="Accessory_1" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_jo5av")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(7, -109, 41, -104, 81, -56, 87, 14, 59, 81, 22, 108, -41, 111, -68, 102, -88, 77, -92, 38, -80, 12, -59, -9, -39, -10, -24, -15, -7, -36, 5, -60, 7, -91)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("1_2hrnu")
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(23, -104)
