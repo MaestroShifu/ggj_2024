@@ -28,7 +28,11 @@ func change_direction() -> void:
 	else:
 		move_direction = Vector2.RIGHT
 
+
+var part: BodyParts
+
 func take_body_part(body_part: BodyParts) -> void:
+	part = body_part
 	add_child(body_part)
 	body_part.global_position = pin_join.global_position
 	var diff := body_part.global_position - body_part.grip_marker.global_position
@@ -36,5 +40,10 @@ func take_body_part(body_part: BodyParts) -> void:
 	pin_join.node_b = "../../%s" % get_path_to(body_part)
 
 func drop() -> void:
+	var prev_tx := part.global_transform
+	remove_child(part)
+	get_parent().add_child(part)
+	part.global_transform = prev_tx
+
 	animated_sprite.play("default")
 	pin_join.node_b = ""
