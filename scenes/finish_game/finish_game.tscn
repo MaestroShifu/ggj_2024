@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cut3my13u48i"]
+[gd_scene load_steps=3 format=3 uid="uid://cut3my13u48i"]
 
+[ext_resource type="Script" path="res://scenes/finish_game/finish_game.gd" id="1_363rg"]
 [ext_resource type="PackedScene" uid="uid://ci3k4llds4a5k" path="res://scenes/finish/finish.tscn" id="1_wqqi0"]
 
 [node name="FinishGame" type="Node"]
+script = ExtResource("1_363rg")
 
 [node name="Finish" parent="." instance=ExtResource("1_wqqi0")]

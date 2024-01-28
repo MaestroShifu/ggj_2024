@@ -104,6 +104,7 @@ func _on_bottom_limit_body_entered(body: BodyParts) -> void:
 
 func _on_select_body_part(idx: int) -> void:
 	is_selected = true
+	GameEvents.emit_sfx_play_sounds(Utils.FSX_SOUND.CLICK)
 	var scene := item_pool[idx].body_part.instantiate()
 	scientist_hand.take_body_part(scene)
 	reset_item_pool()
