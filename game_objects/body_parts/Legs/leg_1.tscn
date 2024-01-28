@@ -93,6 +93,8 @@ _data = {
 }
 
 [node name="Leg_1" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("1_pbjnw")
 
 [node name="polygons" type="Node2D" parent="."]
@@ -111,6 +113,7 @@ internal_vertex_count = 8
 
 [node name="Bone2D" type="Bone2D" parent="leg_bones"]
 position = Vector2(80, 65)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 80, 65)
 
 [node name="Bone2D" type="Bone2D" parent="leg_bones/Bone2D"]

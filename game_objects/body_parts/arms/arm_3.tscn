@@ -93,6 +93,8 @@ _data = {
 radius = 76.47
 
 [node name="Arm_3" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("1_ywoxy")
 
 [node name="Polygons" type="Node2D" parent="."]
@@ -111,6 +113,7 @@ internal_vertex_count = 8
 
 [node name="Hombro" type="Bone2D" parent="Arm_1_bones"]
 position = Vector2(102, 51)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 102, 51)
 
 [node name="codo" type="Bone2D" parent="Arm_1_bones/Hombro"]

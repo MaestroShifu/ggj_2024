@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://vnk8r1c82v8x"]
+[gd_scene load_steps=7 format=3 uid="uid://vnk8r1c82v8x"]
 
 [ext_resource type="Texture2D" uid="uid://dt2e0cafuvfw4" path="res://assets/accessory/accessory_3.png" id="1_78gf3"]
+[ext_resource type="Script" path="res://game_objects/body_parts/accessorys/accessory.gd" id="1_h257v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_km7c7"]
 radius = 66.9
@@ -57,7 +58,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_ufy7a"]
-resource_name = "accessory_3_animation"
+resource_name = "default"
 length = 1.5
 loop_mode = 1
 tracks/0/type = "value"
@@ -112,10 +113,13 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g8kaw"]
 _data = {
 "RESET": SubResource("Animation_yo2cm"),
-"accessory_3_animation": SubResource("Animation_ufy7a")
+"default": SubResource("Animation_ufy7a")
 }
 
 [node name="Accessory_3" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_h257v")
 
 [node name="polygons" type="Node2D" parent="."]
 
@@ -137,6 +141,7 @@ rest = Transform2D(1, 0, 0, 1, 64, 50)
 
 [node name="Bone2D" type="Bone2D" parent="accessoty_bones/Bone2D"]
 position = Vector2(2, 65)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 2, 65)
 
 [node name="Bone2D" type="Bone2D" parent="accessoty_bones/Bone2D/Bone2D"]
