@@ -1,50 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqt2b4dc6hhhc"]
+[gd_scene load_steps=7 format=3 uid="uid://bqt2b4dc6hhhc"]
 
 [ext_resource type="Texture2D" uid="uid://bb2idm6qi66yx" path="res://assets/leg/leg_2.png" id="1_28adf"]
+[ext_resource type="Script" path="res://game_objects/body_parts/legs/leg.gd" id="1_w58f4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_821rg"]
 radius = 96.28
-
-[sub_resource type="Animation" id="Animation_1vpwq"]
-resource_name = "leg_2_animation"
-length = 1.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.424115, -0.280998, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/Bone2D/Bone2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.55334, 0.424115, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/Bone2D/Bone2D/Bone2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.2, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.565487, -0.139626, 0.0]
-}
 
 [sub_resource type="Animation" id="Animation_ullay"]
 length = 0.001
@@ -85,13 +45,55 @@ tracks/2/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_1vpwq"]
+resource_name = "default"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.424115, -0.280998, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Bone2D/Bone2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.55334, 0.424115, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Bone2D/Bone2D/Bone2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.565487, -0.139626, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b213a"]
 _data = {
 "RESET": SubResource("Animation_ullay"),
-"leg_2_animation": SubResource("Animation_1vpwq")
+"default": SubResource("Animation_1vpwq")
 }
 
 [node name="Leg_2" type="RigidBody2D"]
+script = ExtResource("1_w58f4")
 
 [node name="polygons" type="Node2D" parent="."]
 
