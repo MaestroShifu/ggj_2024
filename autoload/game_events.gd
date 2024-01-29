@@ -5,7 +5,11 @@ signal select_body_part(index: int)
 signal change_attempts(attempts: int) 
 signal change_game_scene(scene: Utils.GAME_SCENE)
 
+signal play_music(sound: Utils.MUSIC)
 signal sfx_play_sounds(sound: Utils.FSX_SOUND)
+
+func emit_play_music(sound: Utils.MUSIC) -> void:
+	play_music.emit(sound)
 
 func emit_sfx_play_sounds(sound: Utils.FSX_SOUND) -> void:
 	sfx_play_sounds.emit(sound)

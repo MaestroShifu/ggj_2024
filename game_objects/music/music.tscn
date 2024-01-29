@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8e1a8anastvx"]
+
+[ext_resource type="Script" path="res://game_objects/music/music.gd" id="1_g2jsn"]
+[ext_resource type="AudioStream" uid="uid://5sp3b6ny46rm" path="res://assets/music/Monsterstein_Mus_Creditos.wav" id="2_s0eyg"]
+[ext_resource type="AudioStream" uid="uid://dpbkiihtg6ewn" path="res://assets/music/Monsterstein_Mus_Juego.wav" id="3_8yrfh"]
+[ext_resource type="AudioStream" uid="uid://otv40wbqis5m" path="res://assets/music/Monsterstein_Mus_menu.wav" id="4_4hhky"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_g2jsn")
+
+[node name="Credits" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s0eyg")
+volume_db = -5.0
+
+[node name="Gameplay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8yrfh")
+volume_db = -5.0
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4hhky")
+volume_db = -5.0

@@ -16,10 +16,13 @@ func set_game_scene(game_scene: Utils.GAME_SCENE) -> void:
 	var temp_scene: Node
 	current_game_scene = game_scene
 	if game_scene == Utils.GAME_SCENE.MAIN:
+		GameEvents.emit_play_music(Utils.MUSIC.MENU)
 		temp_scene = main_menu_scene.instantiate()
 	if game_scene == Utils.GAME_SCENE.CREDITS:
+		GameEvents.emit_play_music(Utils.MUSIC.CREDITS)
 		temp_scene = credits_scene.instantiate()
 	if game_scene == Utils.GAME_SCENE.GAMEPLAY:
+		GameEvents.emit_play_music(Utils.MUSIC.GAMEPLAY)
 		temp_scene = gameplay_scene.instantiate()
 	if game_scene == Utils.GAME_SCENE.FINISH:
 		temp_scene = finish_scene.instantiate() as FinishGame
