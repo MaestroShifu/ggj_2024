@@ -22,9 +22,9 @@ func reset_options() -> void:
 	for button in h_box_container.get_children() as Array[BodyPartsButton]:
 		button.queue_free()
 
-func disable_options() -> void:
-	for btn in h_box_container.get_children() as Array[BodyPartsButton]:
-		btn.disabled = true
+func reset_status_buttons() -> void:
+	for button in h_box_container.get_children() as Array[BodyPartsButton]:
+		button.unselectable()
 
 func _on_change_attempts(attempt: int) -> void:
 	current_attempts = attempt
@@ -38,10 +38,9 @@ func _on_set_possibles_body_parts(parts: Array[ListBodyParts]) -> void:
 		scene.pressed.connect(_on_button_click.bind(idx, scene))
 
 func _on_button_click(idx: int, button: BodyPartsButton) -> void:
+	reset_status_buttons()
 	if is_first_time:
 		tutorial.visible = false
 		is_first_time = false
-
-	disable_options()
 	button.selectable()
 	GameEvents.emit_select_body_part(idx)

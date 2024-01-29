@@ -21,3 +21,6 @@ func _process(_delta: float) -> void:
 
 func selectable() -> void:
 	texture_normal = texture_pressed
+
+func unselectable() -> void:
+	texture_normal = null

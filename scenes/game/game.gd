@@ -37,17 +37,16 @@ func _process(_delta: float) -> void:
 		if current_attempts == maximum_attempts:
 			GameEvents.emit_change_attempts(current_attempts)
 
-	if Input.is_action_just_pressed("tap_action") and not is_use_tab:
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("tap_action") and not is_use_tab:
 		is_use_tab = true
 		game_events()
 
-	if Input.is_action_just_released("tap_action"):
+	if event.is_action_released("tap_action"):
 		is_use_tab = false
 
 func game_events() -> void:
-	if game_state == GAME_STATE.SELECT and not is_selected:
-		game_state = GAME_STATE.DROP
-	elif game_state == GAME_STATE.DROP and is_selected:
+	if game_state == GAME_STATE.DROP and is_selected:
 		scientist_hand.drop()
 		game_state = GAME_STATE.PASTE
 	elif game_state == GAME_STATE.PASTE:
@@ -91,6 +90,7 @@ func reset_item_pool() -> void:
 func reset_loop_game() -> void:
 	game_state = GAME_STATE.SELECT
 	is_selected = false
+	reset_item_pool()
 
 	current_attempts -= 1
 	GameEvents.emit_change_attempts(current_attempts)
@@ -105,7 +105,7 @@ func _on_bottom_limit_body_entered(body: BodyParts) -> void:
 
 func _on_select_body_part(idx: int) -> void:
 	is_selected = true
+	game_state = GAME_STATE.DROP
 	GameEvents.emit_sfx_play_sounds(Utils.FSX_SOUND.CLICK)
 	var scene := item_pool[idx].body_part.instantiate()
 	scientist_hand.take_body_part(scene)
-	reset_item_pool()
